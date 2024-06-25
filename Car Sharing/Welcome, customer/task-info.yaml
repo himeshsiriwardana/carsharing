@@ -1,0 +1,52 @@
+type: edu
+custom_name: "Welcome, customer!"
+files:
+  - name: src/carsharing/Main.java
+    visible: true
+    learner_created: false
+  - name: src/carsharing/CompanyDao.java
+    visible: true
+    learner_created: false
+  - name: src/carsharing/Company.java
+    visible: true
+    learner_created: false
+  - name: src/carsharing/dbClient.java
+    visible: true
+    learner_created: false
+  - name: src/carsharing/dbCompanyDao.java
+    visible: true
+    learner_created: false
+  - name: test/CarSharingTest.java
+    visible: false
+    learner_created: false
+  - name: test/DatabaseUtil.java
+    visible: false
+    learner_created: false
+  - name: src/carsharing/Car.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/carDao.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/CompanyMapper.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/CarMapper.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/ResultSetMapper.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/Customer.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/CustomerMapper.java
+    visible: true
+    learner_created: true
+feedback_link: https://hyperskill.org/learn/step/11504#comment
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">Hyperskill</a>
+    to continue learning.
+  time: "Sun, 23 Jun 2024 05:38:06 UTC"
+record: 5

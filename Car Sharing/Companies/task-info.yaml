@@ -1,0 +1,26 @@
+type: edu
+files:
+  - name: src/carsharing/Main.java
+    visible: true
+    learner_created: false
+  - name: test/CarSharingTest.java
+    visible: false
+    learner_created: false
+  - name: test/DatabaseUtil.java
+    visible: false
+    learner_created: false
+  - name: src/carsharing/Company.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/dbClient.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/CompanyDao.java
+    visible: true
+    learner_created: true
+  - name: src/carsharing/dbCompanyDao.java
+    visible: true
+    learner_created: true
+feedback_link: https://hyperskill.org/learn/step/11502#comment
+status: Solved
+record: 1
