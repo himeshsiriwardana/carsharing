@@ -1,10 +1,7 @@
 package carsharing;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,11 +14,22 @@ public class dbClient {
         this.dataSource = dataSource;
     }
 
-    public boolean run (String str){
+    public boolean run (String str, Object[] params){
         try(
             Connection con = dataSource.getConnection();
-            Statement statement = con.createStatement();) {
-            statement.executeUpdate(str);
+            PreparedStatement pstmt = con.prepareStatement(str);) {
+
+            if(params.length != 0) {
+
+                for (int i = 0; i < params.length; i++) {
+                    if (params[i] instanceof String) {
+                        pstmt.setString(i + 1, (String) params[i]);
+                    } else if (params[i] instanceof Integer) {
+                        pstmt.setInt(i + 1, (Integer) params[i]);
+                    }
+                }
+            }
+            pstmt.executeUpdate();
             return true;
         }
         catch(SQLException e){
@@ -30,10 +38,21 @@ public class dbClient {
         }
     }
 
-    public List<Map<String, Object>> extractData(String query) throws SQLException {
+    public List<Map<String, Object>> extractData(String query, Object[] params) throws SQLException {
         try(Connection con = dataSource.getConnection();
-        Statement statement = con.createStatement();
-        ResultSet results = statement.executeQuery(query)){
+        PreparedStatement pstmt = con.prepareStatement(query);){
+            if(params.length != 0) {
+                for (int i = 0; i < params.length; i++) {
+                    if (params[i] instanceof Integer) {
+                        pstmt.setInt(i + 1, (Integer) params[i]);
+                    } else if (params[i] instanceof String) {
+                        pstmt.setString(i + 1, (String) params[i]);
+                    }
+                }
+            }
+
+            ResultSet results = pstmt.executeQuery();
+
             List<Map<String, Object>> result = new ArrayList<>();
 
             while(results.next()){
@@ -60,12 +79,24 @@ public class dbClient {
     }
 
 
-    public <T> List<T> selectForList (String query, ResultSetMapper<T> mapper) {
+    public <T> List<T> selectForList (String query, Object[] params, ResultSetMapper<T> mapper) {
         List<T> results = new ArrayList<>();
 
         try(Connection con = dataSource.getConnection();
-        Statement statement = con.createStatement();
-            ResultSet resultSetItem = statement.executeQuery(query)){
+            PreparedStatement pstmt = con.prepareStatement(query);
+            ){
+
+            if(params.length != 0) {
+                for (int i = 0; i < params.length; i++) {
+                    if (params[i] instanceof Integer) {
+                        pstmt.setInt(i + 1, (Integer) params[i]);
+                    } else if (params[i] instanceof String) {
+                        pstmt.setString(i + 1, (String) params[i]);
+                    }
+                }
+            }
+
+            ResultSet resultSetItem = pstmt.executeQuery();
             while (resultSetItem.next()){
                 T result = mapper.map(resultSetItem);
                 results.add(result);
@@ -74,13 +105,12 @@ public class dbClient {
         catch(SQLException e){
             e.printStackTrace();
         }
-
         return results;
 
     }
 
-    public <T> T select (String query, ResultSetMapper<T> mapper ) {
-        List<T> items = selectForList(query, mapper);
+    public <T> T select (String query, Object[] params, ResultSetMapper<T> mapper ) {
+        List<T> items = selectForList(query, params, mapper);
         if(items.size() == 1){
             return items.get(0);
         } else if (items.isEmpty()) {

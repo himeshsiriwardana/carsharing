@@ -56,6 +56,7 @@ public class Main {
 
                 if (carChoice == 1) {
                     List<Car> listCar = companyDao.listCars(chosenCompanyId);
+                    System.out.println(listCar);
                     if (listCar == null) {
                         System.out.println("The car list is empty!");
                     } else {
@@ -259,6 +260,10 @@ public class Main {
 
             else if (login_input == 5) {
                 companyDao.deleteAllCars();
+            }
+
+            else if (login_input == 6) {
+                companyDao.deleteAllCompanies();
             }
 
             else if (login_input == 0){

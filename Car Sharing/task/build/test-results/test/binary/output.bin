@@ -116,6 +116,7 @@
 2. Create a car
 0. Back
 > 1
+null
 The car list is empty!
 1. Car list
 2. Create a car
@@ -135,6 +136,7 @@
 2. Create a car
 0. Back
 > 1
+%[Hyundai Venue, Maruti Suzuki Dzire]
 Car To Go cars:
 1. Hyundai Venue
 2. Maruti Suzuki Dzire
@@ -156,6 +158,7 @@
 2. Create a car
 0. Back
 > 1
+null
 The car list is empty!
 1. Car list
 2. Create a car
@@ -168,6 +171,7 @@
 2. Create a car
 0. Back
 > 1
+[Lamborghini Urraco]
 Drive Now cars:
 1. Lamborghini Urraco
 1. Car list

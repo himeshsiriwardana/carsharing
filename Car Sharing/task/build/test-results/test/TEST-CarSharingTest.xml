@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CarSharingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-23T05:38:04" hostname="himeshs-air" time="2.238">
+<testsuite name="CarSharingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-07-01T04:32:24" hostname="himeshs-MacBook-Air.local" time="2.231">
   <properties/>
-  <testcase name="start" classname="CarSharingTest" time="2.238"/>
+  <testcase name="start" classname="CarSharingTest" time="2.231"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 1. Log in as a manager
@@ -120,6 +120,7 @@ Car To Go company
 2. Create a car
 0. Back
 > 1
+null
 The car list is empty!
 1. Car list
 2. Create a car
@@ -139,6 +140,7 @@ The car was added!
 2. Create a car
 0. Back
 > 1
+[Hyundai Venue, Maruti Suzuki Dzire]
 Car To Go cars:
 1. Hyundai Venue
 2. Maruti Suzuki Dzire
@@ -160,6 +162,7 @@ Drive Now company
 2. Create a car
 0. Back
 > 1
+null
 The car list is empty!
 1. Car list
 2. Create a car
@@ -172,6 +175,7 @@ The car was added!
 2. Create a car
 0. Back
 > 1
+[Lamborghini Urraco]
 Drive Now cars:
 1. Lamborghini Urraco
 1. Car list
